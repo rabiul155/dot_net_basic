@@ -1,60 +1,56 @@
 using Dot_Net_Basic.Models;
+using Dot_Net_Basic.Repositories;
 
 namespace Dot_Net_Basic.Services;
 
 public class ProductService
 {
-    private readonly List<Product> _products = new();
-    private int _nextId = 1;
+    private readonly IProductRepository _productRepository;
 
-    public ProductService()
+    public ProductService(IProductRepository productRepository)
     {
-        _products.Add(new Product
-        {
-            Id = _nextId++,
-            Name = "Sample Product",
-            Description = "A starter item for the product catalog.",
-            Price = 9.99m,
-            Quantity = 10
-        });
+        _productRepository = productRepository;
     }
 
-    public IEnumerable<Product> GetAll() => _products;
+    public async Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default)
+        => await _productRepository.GetAllAsync(cancellationToken);
 
-    public Product? Get(int id) => _products.FirstOrDefault(p => p.Id == id);
+    public async Task<Product?> GetAsync(int id, CancellationToken cancellationToken = default)
+        => await _productRepository.GetByIdAsync(id, cancellationToken);
 
-    public Product Add(ProductCreateDto dto)
+    public async Task<Product> AddAsync(ProductCreateDto dto, CancellationToken cancellationToken = default)
     {
         var product = new Product
         {
-            Id = _nextId++,
             Name = dto.Name,
             Description = dto.Description,
             Price = dto.Price,
             Quantity = dto.Quantity
         };
 
-        _products.Add(product);
-        return product;
+        return await _productRepository.AddAsync(product, cancellationToken);
     }
 
-    public bool Update(int id, ProductUpdateDto dto)
+    public async Task<bool> UpdateAsync(int id, ProductUpdateDto dto, CancellationToken cancellationToken = default)
     {
-        var existing = Get(id);
+        var existing = await _productRepository.GetByIdAsync(id, cancellationToken);
         if (existing is null)
         {
             return false;
         }
 
-        existing.Name = dto.Name;
-        existing.Description = dto.Description;
-        existing.Price = dto.Price;
-        existing.Quantity = dto.Quantity;
-        return true;
+        var product = new Product
+        {
+            Id = existing.Id,
+            Name = dto.Name,
+            Description = dto.Description,
+            Price = dto.Price,
+            Quantity = dto.Quantity
+        };
+
+        return await _productRepository.UpdateAsync(product, cancellationToken);
     }
 
-    public bool Delete(int id)
-    {
-        return _products.RemoveAll(p => p.Id == id) > 0;
-    }
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
+        => await _productRepository.DeleteAsync(id, cancellationToken);
 }
