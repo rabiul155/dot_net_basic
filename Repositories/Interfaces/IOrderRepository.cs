@@ -1,6 +1,6 @@
 using Dot_Net_Basic.Models;
 
-namespace Dot_Net_Basic.Repositories;
+namespace Dot_Net_Basic.Repositories.Interfaces;
 
 public interface IOrderRepository
 {

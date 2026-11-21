@@ -1,7 +1,8 @@
 using Dot_Net_Basic.Helpers;
 using Dot_Net_Basic.DTOs;
 using Dot_Net_Basic.Models;
-using Dot_Net_Basic.Repositories;
+using Dot_Net_Basic.Repositories.Interfaces;
+using Dot_Net_Basic.Services.Interfaces;
 
 namespace Dot_Net_Basic.Services;
 

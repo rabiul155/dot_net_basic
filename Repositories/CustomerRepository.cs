@@ -1,5 +1,6 @@
 using Dot_Net_Basic.Data;
 using Dot_Net_Basic.Models;
+using Dot_Net_Basic.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Dot_Net_Basic.Repositories;

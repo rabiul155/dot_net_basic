@@ -1,6 +1,6 @@
 using Dot_Net_Basic.DTOs;
 
-namespace Dot_Net_Basic.Services;
+namespace Dot_Net_Basic.Services.Interfaces;
 
 public interface IOrderService
 {

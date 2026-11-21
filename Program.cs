@@ -1,7 +1,9 @@
 using Dot_Net_Basic.Helpers;
 using Dot_Net_Basic.Middleware;
 using Dot_Net_Basic.Repositories;
+using Dot_Net_Basic.Repositories.Interfaces;
 using Dot_Net_Basic.Services;
+using Dot_Net_Basic.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
