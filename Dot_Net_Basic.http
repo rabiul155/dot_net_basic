@@ -1,0 +1,77 @@
+@baseUrl = http://localhost:5082/api
+
+### ---------- Categories ----------
+GET {{baseUrl}}/categories
+
+###
+POST {{baseUrl}}/categories
+Content-Type: application/json
+
+{
+  "name": "Electronics",
+  "description": "Phones, laptops and accessories"
+}
+
+### ---------- Products ----------
+GET {{baseUrl}}/products
+
+###
+GET {{baseUrl}}/products/1
+
+###
+POST {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "name": "Laptop",
+  "description": "14 inch",
+  "price": 999.99,
+  "quantity": 10,
+  "categoryId": 1
+}
+
+###
+PUT {{baseUrl}}/products/1
+Content-Type: application/json
+
+{
+  "name": "Laptop Pro",
+  "description": "16 inch",
+  "price": 1499.99,
+  "quantity": 5,
+  "categoryId": 1
+}
+
+###
+DELETE {{baseUrl}}/products/1
+
+### ---------- Customers ----------
+GET {{baseUrl}}/customers
+
+###
+POST {{baseUrl}}/customers
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john@example.com",
+  "phone": "+8801700000000"
+}
+
+### ---------- Orders ----------
+GET {{baseUrl}}/orders
+
+###
+GET {{baseUrl}}/orders?customerId=1
+
+###
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "customerId": 1,
+  "items": [
+    { "productId": 1, "quantity": 2 }
+  ]
+}

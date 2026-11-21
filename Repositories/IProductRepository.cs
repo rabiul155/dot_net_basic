@@ -4,9 +4,10 @@ namespace Dot_Net_Basic.Repositories;
 
 public interface IProductRepository
 {
-    Task<IEnumerable<Product>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<List<Product>> GetAllAsync(CancellationToken cancellationToken = default);
+    Task<List<Product>> GetByIdsAsync(IReadOnlyCollection<int> ids, CancellationToken cancellationToken = default);
     Task<Product?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
-    Task<Product> AddAsync(Product product, CancellationToken cancellationToken = default);
-    Task<bool> UpdateAsync(Product product, CancellationToken cancellationToken = default);
-    Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default);
+    void Add(Product product);
+    void Remove(Product product);
+    Task SaveChangesAsync(CancellationToken cancellationToken = default);
 }
