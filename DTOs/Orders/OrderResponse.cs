@@ -1,6 +1,6 @@
 using Dot_Net_Basic.Models;
 
-namespace Dot_Net_Basic.DTOs;
+namespace Dot_Net_Basic.DTOs.Orders;
 
 public record OrderResponse(
     int Id,

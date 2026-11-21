@@ -1,4 +1,4 @@
-using Dot_Net_Basic.DTOs;
+using Dot_Net_Basic.DTOs.Orders;
 using Dot_Net_Basic.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

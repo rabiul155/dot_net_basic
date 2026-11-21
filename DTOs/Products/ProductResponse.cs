@@ -1,6 +1,6 @@
 using Dot_Net_Basic.Models;
 
-namespace Dot_Net_Basic.DTOs;
+namespace Dot_Net_Basic.DTOs.Products;
 
 /// <summary>What the API returns. We never return the database entity directly.</summary>
 public record ProductResponse(

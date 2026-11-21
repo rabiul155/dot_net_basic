@@ -1,4 +1,4 @@
-using Dot_Net_Basic.DTOs;
+using Dot_Net_Basic.DTOs.Products;
 
 namespace Dot_Net_Basic.Services.Interfaces;
 

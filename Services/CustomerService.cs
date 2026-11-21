@@ -1,5 +1,5 @@
 using Dot_Net_Basic.Helpers;
-using Dot_Net_Basic.DTOs;
+using Dot_Net_Basic.DTOs.Customers;
 using Dot_Net_Basic.Models;
 using Dot_Net_Basic.Repositories.Interfaces;
 using Dot_Net_Basic.Services.Interfaces;

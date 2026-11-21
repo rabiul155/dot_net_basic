@@ -1,6 +1,6 @@
 using Dot_Net_Basic.Models;
 
-namespace Dot_Net_Basic.DTOs;
+namespace Dot_Net_Basic.DTOs.Categories;
 
 public record CategoryResponse(int Id, string Name, string? Description)
 {

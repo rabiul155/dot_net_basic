@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Dot_Net_Basic.DTOs;
+namespace Dot_Net_Basic.DTOs.Customers;
 
-public class UpdateCustomerRequest
+public class CreateCustomerRequest
 {
     [Required]
     [MaxLength(100)]

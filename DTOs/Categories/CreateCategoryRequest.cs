@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Dot_Net_Basic.DTOs;
+namespace Dot_Net_Basic.DTOs.Categories;
 
 public class CreateCategoryRequest
 {

@@ -1,4 +1,4 @@
-using Dot_Net_Basic.DTOs;
+using Dot_Net_Basic.DTOs.Products;
 using Dot_Net_Basic.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
