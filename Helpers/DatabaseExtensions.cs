@@ -22,4 +22,12 @@ public static class DatabaseExtensions
         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         await dbContext.Database.MigrateAsync();
     }
+
+    /// <summary>Inserts dummy data into empty tables. Intended for local development only.</summary>
+    public static async Task SeedDatabaseAsync(this WebApplication app)
+    {
+        using var scope = app.Services.CreateScope();
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        await DbSeeder.SeedAsync(dbContext);
+    }
 }

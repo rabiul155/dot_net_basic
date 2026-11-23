@@ -62,5 +62,16 @@ if (app.Environment.IsDevelopment())
     await app.ApplyMigrationsAsync();
 }
 
+// Seed command: `dotnet run -- seed`
+// Fills empty tables with dummy data (Data/DbSeeder.cs), then exits without starting the web server.
+// Normal `dotnet run` does NOT seed.
+if (args.Contains("seed", StringComparer.OrdinalIgnoreCase))
+{
+    await app.ApplyMigrationsAsync();
+    await app.SeedDatabaseAsync();
+    Console.WriteLine("Database seeded.");
+    return;
+}
+
 // Starts the web server and blocks, listening for HTTP requests until the app is shut down.
 app.Run();
